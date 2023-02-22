@@ -1,3 +1,1 @@
 # sampleTensorflow
-# sampleTensorflow
-# sampleTensorflow
