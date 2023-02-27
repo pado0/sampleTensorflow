@@ -13,7 +13,7 @@ network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10)
 
 # 하이퍼파라미터
 iters_num = 10000  # 반복 횟수를 적절히 설정한다.
-train_size = x_train.shape[0]
+train_size = x_train.shape[0] # train data 수
 batch_size = 100   # 미니배치 크기
 learning_rate = 0.1
 
@@ -21,11 +21,11 @@ train_loss_list = []
 train_acc_list = []
 test_acc_list = []
 
-# 1에폭당 반복 수
+# 1에폭당 반복 수 - 1에폭당 트레이닝 셋 / 배치 사이즈 만큼 학습을 반복하게 한다. 데이터가 1000개이고, 배치사이즈가 100이면 1에폭당 10번의 가중치 갱신이 일어난다.
 iter_per_epoch = max(train_size / batch_size, 1)
 
 for i in range(iters_num):
-    # 미니배치 획득
+    # 미니배치 획득 - 트레이닝 셋 중 배치 사이즈만큼의 데이터를 가져온다.
     batch_mask = np.random.choice(train_size, batch_size)
     x_batch = x_train[batch_mask]
     t_batch = t_train[batch_mask]
